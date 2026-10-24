@@ -1,0 +1,18 @@
+{
+    "KPlugin": {
+        "Id": "io.github.uladzislautsimankou.containermonitor",
+        "Name": "Container Monitor",
+        "Name[ru]": "Монитор контейнеров",
+        "Description": "Podman and Docker containers and their logs, on this computer or on servers over SSH",
+        "Description[ru]": "Контейнеры Podman и Docker и их логи: на этом компьютере и на серверах по SSH",
+        "Icon": "/icons/container-monitor.svg",
+        "Category": "System Information",
+        "Version": "0.1.0",
+        "License": "MIT",
+        "Authors": [
+            { "Name": "Uladzislau Tsimankou" }
+        ]
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

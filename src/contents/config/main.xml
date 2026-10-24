@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+  <kcfgfile name=""/>
+
+  <group name="General">
+    <entry name="engine" type="String">
+      <default>podman</default>
+    </entry>
+    <entry name="refreshInterval" type="Int">
+      <default>3</default>
+      <min>1</min>
+      <max>60</max>
+    </entry>
+    <entry name="panelWidth" type="Int">
+      <default>440</default>
+      <min>320</min>
+      <max>2400</max>
+    </entry>
+    <entry name="panelHeight" type="Int">
+      <default>520</default>
+      <min>200</min>
+      <max>2400</max>
+    </entry>
+    <entry name="localEnabled" type="Bool">
+      <default>true</default>
+    </entry>
+    <entry name="hosts" type="String">
+      <default>[]</default>
+    </entry>
+    <entry name="logsInterval" type="Int">
+      <default>3</default>
+      <min>1</min>
+      <max>300</max>
+    </entry>
+    <entry name="statsInterval" type="Int">
+      <default>5</default>
+      <min>1</min>
+      <max>300</max>
+    </entry>
+    <entry name="showAll" type="Bool">
+      <default>false</default>
+    </entry>
+    <entry name="showStats" type="Bool">
+      <default>true</default>
+    </entry>
+  </group>
+
+  <group name="Appearance">
+    <entry name="fontFamily" type="String">
+      <default>Monospace</default>
+    </entry>
+    <entry name="fontSize" type="Int">
+      <default>13</default>
+      <min>8</min>
+      <max>28</max>
+    </entry>
+    <entry name="showBackground" type="Bool">
+      <default>false</default>
+    </entry>
+    <entry name="showShadow" type="Bool">
+      <default>false</default>
+    </entry>
+    <entry name="useThemeColors" type="Bool">
+      <default>false</default>
+    </entry>
+    <entry name="colorMain" type="Color">
+      <default>#D8DEE9</default>
+    </entry>
+    <entry name="colorHeader" type="Color">
+      <default>#D8DEE9</default>
+    </entry>
+    <entry name="colorSecondary" type="Color">
+      <default>#A4A8B0</default>
+    </entry>
+    <entry name="colorValues" type="Color">
+      <default>#81A1C1</default>
+    </entry>
+  </group>
+
+  <group name="Logs">
+    <entry name="logLines" type="Int">
+      <default>40</default>
+      <min>1</min>
+      <max>1000</max>
+    </entry>
+    <entry name="followLogs" type="Bool">
+      <default>true</default>
+    </entry>
+    <entry name="inheritLevel" type="Bool">
+      <default>true</default>
+    </entry>
+
+    <entry name="showTime" type="Bool">
+      <default>false</default>
+    </entry>
+    <!-- system | utc | offset -->
+    <entry name="timeZone" type="String">
+      <default>system</default>
+    </entry>
+    <entry name="timeOffsetMinutes" type="Int">
+      <default>0</default>
+      <min>-720</min>
+      <max>840</max>
+    </entry>
+    <!-- time | timeMs | dateTime -->
+    <entry name="timeFormat" type="String">
+      <default>time</default>
+    </entry>
+
+    <entry name="colorLogText" type="Color"><default>#D8DEE9</default></entry>
+
+    <entry name="useColorFatal" type="Bool"><default>true</default></entry>
+    <entry name="useColorError" type="Bool"><default>true</default></entry>
+    <entry name="useColorWarn"  type="Bool"><default>true</default></entry>
+    <entry name="useColorInfo"  type="Bool"><default>false</default></entry>
+    <entry name="useColorDebug" type="Bool"><default>false</default></entry>
+    <entry name="useColorTrace" type="Bool"><default>false</default></entry>
+
+    <entry name="colorFatal" type="Color"><default>#BF616A</default></entry>
+    <entry name="colorError" type="Color"><default>#D08770</default></entry>
+    <entry name="colorWarn"  type="Color"><default>#EBCB8B</default></entry>
+    <entry name="colorInfo"  type="Color"><default>#88C0D0</default></entry>
+    <entry name="colorDebug" type="Color"><default>#81A1C1</default></entry>
+    <entry name="colorTrace" type="Color"><default>#616E88</default></entry>
+
+    <entry name="keywordsFatal" type="String"><default></default></entry>
+    <entry name="keywordsError" type="String"><default></default></entry>
+    <entry name="keywordsWarn"  type="String"><default></default></entry>
+    <entry name="keywordsInfo"  type="String"><default></default></entry>
+    <entry name="keywordsDebug" type="String"><default></default></entry>
+    <entry name="keywordsTrace" type="String"><default></default></entry>
+  </group>
+</kcfg>
