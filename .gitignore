@@ -1,0 +1,13 @@
+# build output
+*.plasmoid
+/dist/
+
+# editors and OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Qt caches
+*.qmlc
+*.jsc
