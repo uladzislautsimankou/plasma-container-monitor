@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate metadata.json and main.xml
+        run: |
+          python3 -c "import json; json.load(open('src/metadata.json'))"
+          python3 -c "import xml.dom.minidom as m; m.parse('src/contents/config/main.xml')"
+
+  release:
+    # runs only for tags like v0.2 and attaches the .plasmoid to a GitHub release
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tag must match the version in metadata.json
+        run: |
+          version=$(python3 -c "import json; print(json.load(open('src/metadata.json'))['KPlugin']['Version'])")
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match metadata.json version $version"
+            exit 1
+          fi
+      - name: Build package
+        run: |
+          mkdir -p dist
+          cd src && zip -r "../dist/container-monitor-${GITHUB_REF_NAME}.plasmoid" metadata.json contents
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" "dist/container-monitor-${GITHUB_REF_NAME}.plasmoid" --generate-notes
